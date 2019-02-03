@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Documentation</title>
+	<link rel="stylesheet" href="../public/css/app.css">
+	<style>
+		body {
+			font-size: 1.2rem;
+		}
+		.wrapper {
+			background: #fff;
+			color: #333;
+		}
+		aside {
+			background: #eee;
+			height: 100vh;
+			padding: 2rem 1rem;
+		}
+		aside > a {
+			color: #1b4b72;
+			text-decoration: none;
+		}
+		aside > a:hover {
+			color: #1d643b;
+			text-decoration: double underline;
+		}
+		
+	</style>
+</head>
+<body>
+<div class="container wrapper">
+	<aside class="col-2 fixed-top">
+		<ul class="nav flex-column">
+			<li class="nav-item">
+				<a href="#models">#Models</a>
+			</li>
+			<li class="nav-item">
+				<a href="#relations">#Relations</a>
+			</li>
+		</ul>
+	</aside>
+	<div class="offset-3">
+		
+		<main class="col">
+			<h1>Documentation</h1>
+			<p>Past paper of every discipline and semester staring with 2012 to on forward.</p>
+			<div class="card">
+				<div class="card-body">
+					<h3 id="models">Models</h3>
+					<ul>
+						<li>User</li>
+						<li>Discipline</li>
+						<li>Semester</li>
+						<li>Course</li>
+						<li>Paper</li>
+						<li>Book</li>
+					</ul>
+				</div>
+			</div>
+			<h3 id="relations">Relations</h3>
+			
+			=> Discipline
+			has many semester,
+			=> Semester
+			is belongs to discipline, has many courses
+			=> Course
+			is belongs to semester, has many papers, has many
+			=> Paper
+			is belongs to a course , semester , discipline
+			=> Book
+			is belong to a course
+			=> User
+			has a profile, has a discipline, has a semester
+			
+			
+			#Sceama
+			
+			=> Discipline [ id, name, full_name, timestamps ]
+			=> Semester [ id, number, duration, timestamps ][ discipline_id ]
+			=> Course [ id, code, name, details, timestamps ][ semester_id ] < == > Course_Course [ course_id, prerequisite_id ]
+			=> Paper [ id, year, file, timestamps ][ course_id, semester_id, discipline_id ]
+			=> Book [ id, name, file, author, timestamps ][ course_id ]
+			=> User [ id, name, email, password, type, timestamps ][
+		</main>
+	</div>
+</div>
+</body>
+</html>
